@@ -58,20 +58,20 @@ housing_data = final_pipeline.fit_transform(housing)
 # 7. TESTING AND SELECTING MODELS
 
 # a.) Linear Regression model
-# lin_reg = LinearRegression()
-# lin_reg.fit(housing_data,housing_value)
-# lin_predict = lin_reg.predict(housing_data)
-# # lin_rmse = root_mean_squared_error(housing_value, lin_predict)
-# lin_rmses = -cross_val_score(lin_reg, housing_data, housing_value, scoring='neg_root_mean_squared_error', cv = 10)
-# print(f"The root mean square error of Linear Regression mdoel = {pd.Series(lin_rmses).describe()}")
+lin_reg = LinearRegression()
+lin_reg.fit(housing_data,housing_value)
+lin_predict = lin_reg.predict(housing_data)
+# lin_rmse = root_mean_squared_error(housing_value, lin_predict)
+lin_rmses = -cross_val_score(lin_reg, housing_data, housing_value, scoring='neg_root_mean_squared_error', cv = 10)
+print(f"The root mean square error of Linear Regression mdoel = {pd.Series(lin_rmses).describe()}")
 
-# # b.) Decision Tree model
-# dec_reg = DecisionTreeRegressor()
-# dec_reg.fit(housing_data,housing_value)
-# dec_predict = dec_reg.predict(housing_data)
-# # dec_rmse = root_mean_squared_error(housing_value, dec_predict)
-# dec_rmses = -cross_val_score(dec_reg, housing_data, housing_value, scoring='neg_root_mean_squared_error', cv = 10)
-# print(f"The root mean square error of Decision Treet mdoel = {pd.Series(dec_rmses).describe()}")
+# b.) Decision Tree model
+dec_reg = DecisionTreeRegressor()
+dec_reg.fit(housing_data,housing_value)
+dec_predict = dec_reg.predict(housing_data)
+# dec_rmse = root_mean_squared_error(housing_value, dec_predict)
+dec_rmses = -cross_val_score(dec_reg, housing_data, housing_value, scoring='neg_root_mean_squared_error', cv = 10)
+print(f"The root mean square error of Decision Treet mdoel = {pd.Series(dec_rmses).describe()}")
 
 # c.) Randome Forest model
 random_forest_reg = RandomForestRegressor()
