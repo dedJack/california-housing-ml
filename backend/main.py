@@ -1,16 +1,16 @@
+
 import os
 from pydantic import BaseModel
 from fastapi import FastAPI
 import pandas as pd
 import joblib
+from train_model import train_model
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if not os.path.exists('model.pkl'):
+    train_model()
 
-model_path = os.path.join(BASE_DIR, "model.pkl")
-pipeline_path = os.path.join(BASE_DIR, "pipeline.pkl")
-
-model = joblib.load(model_path)
-pipeline = joblib.load(pipeline_path)
+model = joblib.load('model.pkl')
+pipeline = joblib.load('pipeline.pkl')
 
 class HouseData(BaseModel):
     longitude: float
